@@ -3,44 +3,44 @@
 //The total of the 5  input will be divided by the answer in the second question input.
 //Note: Error checking must be done.
 package activity_01_d
-import java.util.Scanner
 import mu.KotlinLogging
 private val logger = KotlinLogging.logger{}
 
-fun main(){
+fun main() {
 
-    logger.info { "Enter 5 amounts" }
+    var sum = 0.0
+    for (counter in 1..5) {
+        logger.info { "Enter number[$counter]:" }
+        var number = readln().toDoubleOrNull()
+        if (number == null) {
+            do {
+                logger.error { "Please enter valid input: " }
+                number = readln().toDoubleOrNull()
+            } while (number == null)
+        }
+        sum += number
+    }
 
-    val reader = Scanner(System.`in`)
-    logger.info { "Enter first amount" }
-    var firstNumber:Float = reader.nextFloat()
+    logger.info { "Divide by how many" }
+    var numDivide = readln().toIntOrNull()
+    if (numDivide == null) {
+        do {
+            logger.error { "Please enter valid input: " }
+            numDivide = readln().toIntOrNull()
+        } while (numDivide == null)
+    }
 
-    logger.info { "Enter second amount" }
-    var secondNumber:Float = reader.nextFloat()
+    var totalAmount = sum / numDivide
+    var roundOff = String.format("%.2f", totalAmount)
 
-    logger.info { "Enter third amount" }
-    var thirdNumber:Float = reader.nextFloat()
-
-    logger.info { "Enter fourth amount" }
-    var fourthNumber:Float = reader.nextFloat()
-
-    logger.info { "Enter fifth amount" }
-    var fifthNumber:Float = reader.nextFloat()
-
-    logger.info { "Divide the value by how many" }
-    var divider:Int = reader.nextInt()
-
-
-
-    var sumAmount = firstNumber + secondNumber + thirdNumber + fourthNumber + fifthNumber
-    var total = sumAmount / divider
-
-    logger.info { "Total: $total" }
-
-
-
+    logger.info {"Total: $roundOff" }
 
 }
+
+
+
+
+
 
 
 

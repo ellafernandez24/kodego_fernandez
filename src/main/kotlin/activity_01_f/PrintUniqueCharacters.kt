@@ -15,6 +15,7 @@ fun main() {
     logger.info { "Enter Second String" }
     var userInputSecond = readLine().toString()
 
+
     var userInput = userInputFirst+userInputSecond
 
     for (index in userInput.indices) {
@@ -24,7 +25,7 @@ fun main() {
             }
         }
     }
-    logger.info { "Unique Characters: $userInput " }
+    logger.info { "Unique Characters: ${userInput.replace(" ", "")} " }
 }
 
 

@@ -66,14 +66,6 @@ fun countStudent(){
 //Create a function "searchStudentWildSearch" that will accept a String and search if that string is found with in the ArrayList, it will return an ArrayList of names that matched if there are.
 fun searchStudentWildSearch(){
 
-    var searchStudentWildNameSearch: ArrayList<String> = ArrayList()
-
-    logger.info { "Search name in directory:" }
-    var givenName = readLine().toString()
-    var index = 0
-
-
-
 }
 //Create a function  "searchStudentName" that will accept a String and search if there is an exact match of the String input, it will return an ArrayList of names that matched if there are.
 fun searchStudentName(){

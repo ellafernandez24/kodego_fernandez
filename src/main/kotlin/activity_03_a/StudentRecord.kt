@@ -63,17 +63,41 @@ fun countStudent(){
     logger.info { "Number of students in directory: ${studentNames.size}" }
 }
 
-//Create a function "searchStudentWildSearch" that will accept a String and search if that string is found with in the ArrayList, it will return an ArrayList of names that matched if there are.
-fun searchStudentWildSearch(){
-
-}
-//Create a function  "searchStudentName" that will accept a String and search if there is an exact match of the String input, it will return an ArrayList of names that matched if there are.
-fun searchStudentName(){
-
-    var searchStudentNames: ArrayList<String> = ArrayList()
+//Create a function "searchStudent" that will accept a String and call "searchStudentWildSearch" if the String input is less than or equal to three, and it will call "searchStudentName" if the String input is greater than three.
+fun searchStudent(){
 
     logger.info { "[SEARCH NAME IN DIRECTORY]Input name: " }
     var givenName = readLine().toString()
+
+    if(givenName.length <= 3){
+        searchStudentWildSearch(givenName)
+    }else{
+        searchStudentName(givenName)
+    }
+
+
+}
+
+//Create a function "searchStudentWildSearch" that will accept a String and search if that string is found with in the ArrayList, it will return an ArrayList of names that matched if there are.
+fun searchStudentWildSearch(givenName:String){
+
+    var studentnames: ArrayList<String> = ArrayList()
+
+
+    for (i in studentNames.indices){
+        if(studentNames[i].contains(givenName, ignoreCase = true)) {
+            studentnames.add(studentNames[i])
+        }
+    }
+
+    logger.info { studentnames }
+
+}
+//Create a function  "searchStudentName" that will accept a String and search if there is an exact match of the String input, it will return an ArrayList of names that matched if there are.
+fun searchStudentName(givenName : String){
+
+    var searchStudentNames: ArrayList<String> = ArrayList()
+
     var found = false
 
     for (i in studentNames.indices){
@@ -87,20 +111,7 @@ fun searchStudentName(){
     logger.info { "List of names found in the directory: $searchStudentNames " }
 
 }
-//Create a function "searchStudent" that will accept a String and call "searchStudentWildSearch" if the String input is less than or equal to three, and it will call "searchStudentName" if the String input is greater than three.
-fun searchStudent(){
 
-    logger.info { "[SEARCH NAME IN DIRECTORY]Input name: " }
-    var givenName = readLine().toString()
-
-    if(givenName.length <= 3){
-        searchStudentWildSearch()
-    }else{
-        searchStudentName()
-    }
-
-
-}
 //Create a function "showStudents" that will print all the entries in the ArrayList.
 fun showStudents(){
 
